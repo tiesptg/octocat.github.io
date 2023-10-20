@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<style>
+* {
+	font-family: Arial, Helvetica;
+}
+td {
+	vertical-align: top;
+}
+div {
+	padding: 2px;
+}
+button {
+	font-size:12pt;
+}
+select {
+	min-width: 200px;
+}
+
+</style>
+<script type="text/javascript" src="evolution.js" defer></script>
+<script type="text/javascript" src="gui.js" defer></script>
+</head>
+<body style="background-color:lightgray" onload="gui = new Gui();">
+<table>
+<tr><td>
+<div>Demonstration Field</div>
+<canvas id="field" width="1000" height="675">no canvas</canvas>
+<div>
+<button onclick="gui.start();">Start</button> 
+<button onclick="gui.stop();">Stop</button> 
+<button onclick="gui.restart();">Restart</button>
+<button id="speed" onclick="gui.toggleSpeed();">Slow</button> 
+Best Score: <span id="score"></span> 
+Generations <span id="generations"></span> Attempts <span id="attempts"></span>
+</div>
+</td><td><div>Active Script</div><div id="script" style="vertical-align:top;font-size:10pt;"></div>
+</td></tr>
+<tr><td>
+<div>Best Score/generation per worker</div>
+<canvas id="graph" width="1000" height="400">no canvas</canvas>
+</td><td>
+<div>Best scripts as found in time</div>
+<select id="best" size="20" onchange="gui.selectAnimal();"></select>
+</td></tr>
+<tr><td>
+<canvas id="drawField" width="1000" height="675">no canvas</canvas>
+<div>
+<button id="delLast" onclick="gui.removeLastLine();">Remove Last Line</button> 
+<button id="delLast" onclick="gui.removeAllLines();">Remove All Lines</button> 
+<button id="activate" onclick="gui.activateField();">Activate</button>
+</div>
+</td><td>
+</td></tr>
+</table>
+</body>
+</html>
